@@ -1,0 +1,15 @@
+.link {
+    padding: 20px;
+    border: 1px solid teal;
+    font-size: 25px;
+    display: inline;
+    gap: 15px;
+    border-radius: 8px;
+    background-color: aqua;
+    transition: all 0.3ms;
+}
+.active {
+    font-size: 30px;
+    background-color: rgb(51, 91, 91);
+    transition: all 0.5ms;
+}
