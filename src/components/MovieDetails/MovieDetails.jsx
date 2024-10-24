@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import MovieDetails from '../../components/MovieDetails/MovieDetails';
-import Loader from '../../components/Loader/Loader';
-import ErrorMessage from '../../components/ErrorMessage/ErrorMessege';
-import { fetchMoviesId } from '../../components/API/Request'; 
+import MovieDetails from './MovieDetails';
+import Loader from '../Loader/Loader'
+import ErrorMessage from '../ErrorMessage/ErrorMessege';
+import { fetchMoviesId } from '../API/Request';
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
@@ -32,6 +32,10 @@ const MovieDetailsPage = () => {
 
   if (error) {
     return <ErrorMessage errorMessage={error} />;
+  }
+
+  if (!movieData) {
+    return <ErrorMessage errorMessage="Movie data not found." />; 
   }
 
   return <MovieDetails movieData={movieData} />;

@@ -14,8 +14,8 @@ const MovieList = ({ movies }) => {
               alt={movie.title}
               className={styles.moviePoster}
             />
-            <h3 className={styles.movieTitle}>{movie.title}</h3>
-            <p className={styles.movieOverview}>{movie.overview}</p>
+            {/* <h3 className={styles.movieTitle}>{movie.title}</h3>
+            <p className={styles.movieOverview}>{movie.overview}</p> */}
           </div>
         ))
       )}

@@ -22,24 +22,24 @@ export const fetchTrendingMovies = async page => {
 };
 
 export const fetchMoviesId = async id => {
-    const response = await movies.get.get(`/movie/${id}`);
+    const response = await movies.get(`/movie/${id}`);
     const data = response.data;
     return data;
   };
   export const fetchMoviesSearch = async (q, page) => {
-    const response = await movies.get.get(
+    const response = await movies.get(
       `/search/movie?query=${q}&page=${page}`
     );
     const data = response.data;
     return data;
   };
   export const fetchMoviesCredits = async id => {
-    const response = await movies.get.get(`/movie/${id}/credits`);
+    const response = await movies.get(`/movie/${id}/credits`);
     const data = response.data;
     return data;
   };
   export const fetchMoviesReviews = async id => {
-    const response = await movies.get.get(`/movie/${id}/reviews`);
+    const response = await movies.get(`/movie/${id}/reviews`);
     const data = response.data;
     return data;
   };
