@@ -16,13 +16,9 @@ const movies = axios.create({
 });
 
 export const fetchTrendingMovies = async page => {
-    try {
-        const response = await movies.get(`/trending/movie/day?page=${page}`);
-        return response.data;
-    } catch (error) {
-        console.error('Error fetching trending movies:', error);
-        throw error;
-    }
+  const response = await movies.get(`/trending/movie/day?page=${page}`);
+  const data = response.data;
+  return data;
 };
 
 export const fetchMoviesId = async id => {
