@@ -9,12 +9,14 @@ const buildStylesClass = ({ isActive }) =>
 const Navigation = () => {
   return (
     <div>
+      <header className={styles.navi}>
       <NavLink to="/" className={buildStylesClass}>
         Home
       </NavLink>
       <NavLink to="/movies" className={buildStylesClass}>
         Movies
       </NavLink>
+      </header>
     </div>
   );
 };

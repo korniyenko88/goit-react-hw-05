@@ -1,5 +1,16 @@
-const HomePage = () => {
-  return <div>Home</div>;
-};
+import React, { useState } from 'react'
 
-export default HomePage;
+const HomePage = () => {
+const [loading, setLoading] = useState(false);
+
+
+
+  return (
+    <div>
+      
+    </div>
+  )
+}
+
+export default HomePage
+
