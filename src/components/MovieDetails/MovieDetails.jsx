@@ -1,44 +1,32 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import MovieDetails from './MovieDetails';
-import Loader from '../Loader/Loader'
-import ErrorMessage from '../ErrorMessage/ErrorMessege';
-import { fetchMoviesId } from '../API/Request';
+import { React, useEffect, useState } from 'react';
+import clsx from 'clsx';
+import css from './MovieDetails.module.css';
+import { defaultImg } from '../API/Request';
 
-const MovieDetailsPage = () => {
-  const { movieId } = useParams();
-  const [movieData, setMovieData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
-
-  useEffect(() => {
-    const getMovieData = async () => {
-      try {
-        const data = await fetchMoviesId(movieId);
-        setMovieData(data);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    getMovieData();
-  }, [movieId]);
-
-  if (loading) {
-    return <Loader />;
-  }
-
-  if (error) {
-    return <ErrorMessage errorMessage={error} />;
-  }
-
-  if (!movieData) {
-    return <ErrorMessage errorMessage="Movie data not found." />; 
-  }
-
-  return <MovieDetails movieData={movieData} />;
+const MovieDetails = ({ movieData }) => {
+  return (
+    <div>
+      {movieData && (
+        <div>
+          <img
+            src={
+              movieData.poster_path
+                ? `https://image.tmdb.org/t/p/w500${movieData.poster_path}`
+                : defaultImg
+            }
+            alt={movieData.title}
+            style={{ width: 300 }}
+          />
+          <div>
+            <h2>{movieData.title}</h2>
+            <p>Popularity: {movieData.popularity}</p>
+            <h2>Overview</h2>
+            <p>{movieData.overview}</p>
+          </div>
+        </div>
+      )}
+    </div>
+  );
 };
 
-export default MovieDetailsPage;
+export default MovieDetails;

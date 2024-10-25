@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+export const defaultImg = 'https://img.freepik.com/free-photo/cute-3d-sushi-with-face_23-2151327356.jpg?t=st=1729846763~exp=1729850363~hmac=3d6af80d4dd6c67fabe30ccdd6f40126a49fe029315b9ae91252c30362322fce&w=826';
 const key =
   'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiYWZkNjJmMDY2YjMyODMwYmFlNzljZDkzMWI0ZjUxNCIsIm5iZiI6MTcyOTcxMzQ2MC4yNjA3MTQsInN1YiI6IjY3MTk1MjllNmQ2YjcwNWRjODcxMjAyNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.AmYYhSXEwZ8dEKfrtwWtzyMfXcHnaWKSfCbPYPYkUDw';
 
