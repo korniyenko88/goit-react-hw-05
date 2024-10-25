@@ -1,45 +1,69 @@
+import styles from './MoviesPage.module.css'
 
-// import React, { useState, useEffect } from 'react';
-// import { fetchTrendingMovies } from '../path/to/Request';
-// import MovieList from '../../components/MovieList/MovieList';
-// import Loader from '../../components/Loader/Loader';
-// import ErrorMessage from '../../components/ErrorMessage/ErrorMessege';
-// import styles from './MoviesPage.module.css';
 
-// const MoviesPage = () => {
-//   const [loading, setLoading] = useState(false);
-//   const [moviesList, setMoviesList] = useState([]);
-//   const [errorMessage, setErrorMessage] = useState('');
-//   const [error, setError] = useState(false);
+import React, { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { fetchMoviesSearch } from '../../components/API/Request';
+import MovieList from '../../components/MovieList/MovieList';
+import Loader from '../../components/Loader/Loader';
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessege';
+import MovieSearch from '../../components/MovieSearch/MovieSearch';
 
-//   useEffect(() => {
-//     const getMovies = async () => {
-//       try {
-//         setError(false);
-//         setLoading(true);
-//         const data = await fetchTrendingMovies(1); 
-//         setMoviesList(data.results); 
-//       } catch (error) {
-//         setError(true);
-//         setErrorMessage(error.message);
-//       } finally {
-//         setLoading(false);
-//       }
-//     };
-    
-//     getMovies();
-//   }, []);
+const MoviesPage = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [movieList, setMovieList] = useState([]);
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState(1);
 
-//   return (
-//     <div className={styles.moviesPage}>
-//       {loading && <Loader />}
-//       {error ? (
-//         <ErrorMessage errorMessage={errorMessage} />
-//       ) : (
-//         <MovieList movies={moviesList} />
-//       )}
-//     </div>
-//   );
-// };
+  const onSearch = searchWord => {
+    setSearchParams({ query: searchWord });
+  };
 
-// export default MoviesPage;
+  const searchQuery = searchParams.get('query');
+  const title = `Here's what we found`;
+
+  useEffect(() => {
+    const searchMovies = async () => {
+      if (!searchQuery) {
+        setMovieList([]);
+        return; 
+      }
+      try {
+        setError(false);
+        setLoading(true);
+        const data = await fetchMoviesSearch(searchQuery, page);
+        const trend = data.results || [];
+        setMovieList(trend);
+      } catch (error) {
+        setError(true);
+        setErrorMessage(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+    searchMovies();
+  }, [searchQuery, page]);
+
+  return (
+    <div>
+      <MovieSearch onSearch={onSearch} />
+
+      {loading && <Loader />}
+      {error ? (
+        <ErrorMessage errorMessage={errorMessage} />
+      ) : (
+        <>
+          {movieList.length > 0 ? (
+            <MovieList movies={movieList} title={title} />
+          ) : (
+            <p>No movies found.</p>
+          )}
+        </>
+      )}
+    </div>
+  );
+};
+
+export default MoviesPage;

@@ -43,7 +43,7 @@ const MovieDetailsPage = () => {
 
   const backUrl = location.state?.from || '/movies';
   const goBack = () => {
-    navigate(backUrl);
+    navigate('/');
   };
 
   if (loading) {

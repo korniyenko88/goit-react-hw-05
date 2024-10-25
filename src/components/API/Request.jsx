@@ -27,13 +27,7 @@ export const fetchMoviesId = async id => {
     const data = response.data;
     return data;
   };
-  export const fetchMoviesSearch = async (q, page) => {
-    const response = await movies.get(
-      `/search/movie?query=${q}&page=${page}`
-    );
-    const data = response.data;
-    return data;
-  };
+ 
   export const fetchMoviesCredits = async id => {
     const response = await movies.get(`/movie/${id}/credits`);
     const data = response.data;
@@ -43,4 +37,9 @@ export const fetchMoviesId = async id => {
     const response = await movies.get(`/movie/${id}/reviews`);
     const data = response.data;
     return data;
-  };
+};
+   export const fetchMoviesSearch = async (q, page) => {
+     const response = await movies.get(`/search/movie?query=${q}&page=${page}`);
+     const data = response.data;
+     return data;
+   };
