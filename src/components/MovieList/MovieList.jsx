@@ -2,16 +2,12 @@ import React from 'react';
 import styles from './MovieList.module.css';
 import { Link, useLocation } from 'react-router-dom';
 
-const MovieList = ({ movies = [] }) => {
- 
+const MovieList = ({ movies, title }) => {
   const location = useLocation();
 
   return (
     <div className={styles.movieList}>
-      <div>
-        <h2>Trending today</h2>
-      </div>
-
+      <h2 className={styles.title}>{title}</h2>
       {movies.length === 0 ? (
         <p>No movies found.</p>
       ) : (

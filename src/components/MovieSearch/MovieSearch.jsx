@@ -18,7 +18,7 @@ const MovieSearch = ({ onSearch }) => {
           autoFocus
           placeholder="Search movies"
         />
-        <button type="submit">Movi 🔍</button>
+        <button type="submit">Movie 🔍</button>
       </form>
     </div>
   );

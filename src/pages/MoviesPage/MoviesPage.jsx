@@ -16,9 +16,11 @@ const MoviesPage = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
+  const [searched, setSearched] = useState(false);
 
   const onSearch = searchWord => {
     setSearchParams({ query: searchWord });
+    setSearched(true);
   };
 
   const searchQuery = searchParams.get('query');
@@ -49,21 +51,21 @@ const MoviesPage = () => {
   return (
     <div>
       <MovieSearch onSearch={onSearch} />
-
+  
       {loading && <Loader />}
       {error ? (
         <ErrorMessage errorMessage={errorMessage} />
       ) : (
         <>
-          {movieList.length > 0 ? (
-            <MovieList movies={movieList} title={title} />
-          ) : (
+          {searched && movieList.length === 0 ? ( 
             <p>No movies found.</p>
+          ) : (
+            movieList.length > 0 && <MovieList movies={movieList} title={title} />
           )}
         </>
       )}
     </div>
   );
-};
+}
 
 export default MoviesPage;
