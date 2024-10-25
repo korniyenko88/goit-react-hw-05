@@ -1,8 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Navigation from './components/Navigation/Navigation';
-import Loader from './components/Loader/Loader'; 
-
+import Loader from './components/Loader/Loader';
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const MovieDetailsPage = lazy(() =>

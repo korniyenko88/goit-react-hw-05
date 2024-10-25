@@ -21,6 +21,13 @@ const MovieCast = () => {
       } catch (error) {
         setError(true);
         setErrorMessage(error.message);
+      } finally {
+        setTimeout(() => {
+          window.scrollBy({
+            top: 400,
+            behavior: 'smooth',
+          });
+        }, 300);
       }
     };
     addCastDetails();
