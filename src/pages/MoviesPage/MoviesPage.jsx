@@ -51,8 +51,9 @@ const MoviesPage = () => {
   return (
     <div>
       <MovieSearch onSearch={onSearch} />
-  
+      <div className={styles.loader}>
       {loading && <Loader />}
+      </div>
       {error ? (
         <ErrorMessage errorMessage={errorMessage} />
       ) : (

@@ -33,7 +33,9 @@ const HomePage = () => {
 
   return (
     <div className={styles.homePage}>
+      <div className={styles.loader}>
       {loading && <Loader />}
+      </div>
       {error ? (
         <ErrorMessage errorMessage={errorMessage} />
       ) : (

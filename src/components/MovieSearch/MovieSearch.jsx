@@ -1,5 +1,5 @@
 import React from 'react';
-
+import styles from './MovieSearch.module.css'
 const MovieSearch = ({ onSearch }) => {
   const handleSubmit = event => {
     event.preventDefault();
@@ -9,16 +9,16 @@ const MovieSearch = ({ onSearch }) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
+    <div className={styles.searchWraper}>
+      <form className={styles.searchForm} onSubmit={handleSubmit}>
+        <input className={styles.searchInput}
           type="text"
           name="search"
           autoComplete="off"
           autoFocus
           placeholder="Search movies"
         />
-        <button type="submit">Movie 🔍</button>
+        <button className={styles.searchBtn} type="submit">Movie 🔍</button>
       </form>
     </div>
   );

@@ -47,11 +47,11 @@ const MovieReviews = () => {
       {error ? (
         <ErrorMessage errorMessage={errorMessage} />
       ) : reviews.length > 0 ? (
-        <ul>
+        <ul className={styles.reviewsList}>
           {reviews.map(review => (
             <li key={review.id}>
-              <h3>{review.author}:</h3>
-              <p>{review.content}</p>
+              <h3 className={styles.reviewsTitle}>{review.author}:</h3>
+              <p className={styles.reviewsText}>{review.content}</p>
             </li>
           ))}
         </ul>

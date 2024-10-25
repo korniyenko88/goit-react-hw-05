@@ -60,9 +60,9 @@ const MovieDetailsPage = () => {
 
   return (
     <>
-      <button onClick={goBack}>Go back</button>
+      <button onClick={goBack} className={styles.backBtn} >Go back</button>
       <MovieDetails movieData={movieData} />
-      <nav>
+      <nav className={styles.castReviewsBtn}>
         <NavLink
           state={{ from: backUrl }}
           to="cast"

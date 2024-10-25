@@ -1,0 +1,17 @@
+.movieList {
+  padding: 20px;
+  display: flex;
+  gap: 8px;
+  margin-top: 15px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: center;
+}
+.movieItem {
+  transition: transform 0.5s;
+}
+
+.movieItem:hover {
+  transform: scale(1.1);
+}

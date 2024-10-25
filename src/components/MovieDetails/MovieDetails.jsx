@@ -1,13 +1,13 @@
 import { React, useEffect, useState } from 'react';
 import clsx from 'clsx';
-import css from './MovieDetails.module.css';
+import styles from './MovieDetails.module.css';
 import { defaultImg } from '../API/Request';
 
 const MovieDetails = ({ movieData }) => {
   return (
     <div>
       {movieData && (
-        <div>
+        <div className={styles.detailsWraper}>
           <img
             src={
               movieData.poster_path
@@ -17,11 +17,11 @@ const MovieDetails = ({ movieData }) => {
             alt={movieData.title}
             style={{ width: 300 }}
           />
-          <div>
-            <h2>{movieData.title}</h2>
-            <p>Popularity: {movieData.popularity}</p>
-            <h2>Overview</h2>
-            <p>{movieData.overview}</p>
+          <div className={styles.detailsText}>
+            <h2 className={styles.detailsTitle}>{movieData.title}</h2>
+            <p className={styles.text}>Popularity: {movieData.popularity}</p>
+            <h2 className={styles.detailsTitle}>Overview</h2>
+            <p className={styles.text}>{movieData.overview}</p>
           </div>
         </div>
       )}

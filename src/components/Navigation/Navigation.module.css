@@ -1,5 +1,5 @@
 .link {
-  padding: 20px;
+  padding: 5px 20px;
   font-size: 25px;
   border-radius: 8px;
   background-color: transparent;
@@ -14,7 +14,7 @@
   display: flex;
   background-color: currentcolor;
   width: 100vw;
-  padding: 50px;
+  padding: 25px;
   align-items: center;
   justify-content: center;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);

@@ -38,9 +38,9 @@ const MovieCast = () => {
       {error ? (
         <ErrorMessage errorMessage={errorMessage} />
       ) : cast.length > 0 ? (
-        <ul>
+        <ul className={styles.castList}>
           {cast.map(i => (
-            <li key={i.id}>
+            <li className={styles.castItem} key={i.id}>
               {' '}
               {/* Переконайтесь, що i.id унікальне */}
               <img
@@ -52,8 +52,8 @@ const MovieCast = () => {
                 alt={i.name}
                 style={{ width: 170 }}
               />
-              <h4>{i.name}</h4>
-              <p>{i.character}</p>
+              <h4 className={styles.castTitle}>{i.name}</h4>
+              <p className={styles.castText}>{i.character}</p>
             </li>
           ))}
         </ul>

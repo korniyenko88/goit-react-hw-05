@@ -6,27 +6,29 @@ const MovieList = ({ movies, title }) => {
   const location = useLocation();
 
   return (
-    <div className={styles.movieList}>
-      <h2 className={styles.title}>{title}</h2>
-      {movies.length === 0 ? (
-        <p>No movies found.</p>
-      ) : (
-        movies.map(movie => (
-          <div key={movie.id} className={styles.movieItem}>
-            <Link
-              to={`/movies/${movie.id}`}
-              state={{ from: location }}
-              className={styles.link}
-            >
-              <img
-                src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-                alt={movie.title}
-                className={styles.moviePoster}
-              />
-            </Link>
-          </div>
-        ))
-      )}
+    <div>
+      <h2 className={styles.title}>{title}</h2> 
+      <div className={styles.movieList}>
+        {movies.length === 0 ? (
+          <p>No movies found.</p>
+        ) : (
+          movies.map(movie => (
+            <div key={movie.id} className={styles.movieItem}>
+              <Link
+                to={`/movies/${movie.id}`}
+                state={{ from: location }}
+                className={styles.link}
+              >
+                <img
+                  src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+                  alt={movie.title}
+                  className={styles.moviePoster}
+                />
+              </Link>
+            </div>
+          ))
+        )}
+      </div>
     </div>
   );
 };

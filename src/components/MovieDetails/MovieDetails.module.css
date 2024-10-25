@@ -1,0 +1,23 @@
+.detailsWraper {
+    gap: 20px;
+    padding: 10px;
+    display: flex;
+}
+.detailsText {
+    gap: 8px;
+    display: flex;
+    max-width: 800px;
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.detailsTitle {
+margin: 0;
+font-size: 10px;
+font-size: 35px;
+}
+.text {
+    font-size: 15px;
+    margin: 0;
+}
